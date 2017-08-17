@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>GOT Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- 	<form th:action="@{/newgame}" method="get">
+		<button class="btn btn-md btn-warning btn-block" type="Submit">New Game</button>
+	</form>	
+	 -->
+	<div class="container">
+		<form th:action="@{/create-player}" th:object="${player}" method="GET" class="form-horizontal">
+			<h3 class="form-signin-heading">Welcome To Game Of Three!!</h3>
+			<div class="form-group">
+	        	<label for="playerName" class="control-label col-xs-2">Player Name:</label>
+	        	<div class="col-xs-10">
+	        		<input id="playerName" name="playerName" placeholder="player name" class="form-control" th:field="*{name}" />
+	        	</div>
+	    	</div>
+			<div class="radio">
+				<label><input type="radio" th:name="${'gameType'}" value="ALIEN"/>Alien Vs Alien</label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" th:name="${'gameType'}" value="HUMAN"/>Human Vs Alien</label>
+			</div>
+			<div class="form-group">
+		        <div class="col-xs-offset-2 col-xs-10">
+		        	<button class="btn btn-primary" name="Submit" value="Start" type="Submit" th:text="Start"></button> 
+		        </div>
+	    	</div>
+		</form>
+	</div>
+</body>
+</html>
